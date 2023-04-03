@@ -1,0 +1,206 @@
+/* ----------------------------------------------------------------------------------- */
+/* ------------------------------------ chess board style ---------------------------- */
+    *{
+        color: rgba(0, 0, 0, 0.804);
+        font-size: 0px;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    .container{
+        height: 100vh;
+        width: 100vw;
+        background:linear-gradient(to right bottom ,rgb(28, 0, 35),rgb(52, 48, 0));
+        display: grid;
+        place-items: center;
+    }
+    .center {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .border-wrap{
+        padding: 3px;
+        background:linear-gradient(to right bottom ,rgb(0, 83, 0),rgb(0, 51, 0));
+        box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.619);
+        border-radius: 5px; 
+    }
+    table{
+        border-collapse:collapse;
+    }
+    td{
+        border-radius: 3px;
+        height: 12vh;
+        width: 12vh;
+    }
+    .dark{
+        background: linear-gradient(to right bottom,rgb(0, 83, 0),rgb(0, 51, 0));
+    }
+    .light{
+        background: linear-gradient(to right bottom,rgb(169, 178, 169),rgb(79, 88, 79));
+    }
+
+
+/* ----------------------------------------------------------------------------------- */
+/* ---------------------------------------- div style -------------------------------- */
+
+
+    .a{  
+        height: 100%;
+        width: 100%;
+        user-select: none;
+        display: flex;
+        justify-content: left;
+        align-items: top;
+        padding: 2px;
+        border-radius: 3px;
+        position: relative;
+        transform: translateZ(30);
+    }
+    .a:hover{
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.457);
+    }
+
+/* ---------------------------------------------------------------------------------- */
+/* ------------------------------------ chess pieces style -------------------------- */
+    
+    .whiteBishop{
+        background-image: url(whiteBishop.png);
+        background-repeat: no-repeat;
+        background-size: 95%;
+        background-position: center;
+    }
+    .whiteRook{
+        background-image: url(whiteRook.png);
+        background-repeat: no-repeat;
+        background-size: 95%;
+        background-position: center;
+    }
+    .whitePawn{
+        background-image: url(whitePawn.png);
+        background-repeat: no-repeat;
+        background-size: 80%;
+        background-position: center;
+    }
+    .whiteQueen{
+        background-image: url(whiteQueen.png);
+        background-repeat: no-repeat;
+        background-size: 95%;
+        background-position: center;
+    }
+    .whiteKing{
+        background-image: url(whiteKing.png);
+        background-repeat: no-repeat;
+        background-size: 95%;
+        background-position: center;
+    }
+    .whiteKnight{
+        background-image: url(whiteKnite.png);
+        background-repeat: no-repeat;
+        background-size: 95%;
+        background-position: center;
+    }
+    .blackBishop{
+        background-image: url(blackBishop.png);
+        background-repeat: no-repeat;
+        background-size: 95%;
+        background-position: center;
+    }
+    .blackRook{
+        background-image: url(blackRook.png);
+        background-repeat: no-repeat;
+        background-size: 95%;
+        background-position: center;
+    }
+    .blackPawn{
+        background-image: url(blackPawn.png);
+        background-repeat: no-repeat;
+        background-size: 80%;
+        background-position: center;
+    }
+    .blackQueen{
+        background-image: url(blackQueen.png);
+        background-repeat: no-repeat;
+        background-size: 95%;
+        background-position: center;
+    }
+    .blackKing{
+        background-image: url(blackKing.png);
+        background-repeat: no-repeat;
+        background-size: 95%;
+        background-position: center;
+    }
+    .blackKnight{
+        background-image: url(blackKnite.png);
+        background-repeat: no-repeat;
+        background-size: 95%;
+        background-position: center;
+    }
+   
+
+
+/* -------------------------------------------------------------------------------------     */
+/* --------------------------------------- media ---------------------------------------     */
+
+
+
+@media (orientation:portrait) {
+
+
+    .border-wrap{
+        padding: 2px;
+        background:linear-gradient(to right bottom ,rgb(0, 83, 0),rgb(0, 51, 0));
+        box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.619);
+        border-radius: 3px; 
+    }
+    td{
+        border-radius: 2px;
+        height: 11vw;
+        width: 11vw;
+    }
+    .a{  
+        height: 100%;
+        width: 100%;
+        user-select: none;
+        display: flex;
+        justify-content: left;
+        align-items: top;
+        padding: 1px;
+        border-radius: 2px;
+        position: relative;
+        transform: translateZ(30);
+    }
+   
+}
+
+
+
+@media (400px <= width <= 710px) {
+
+
+    .border-wrap{
+        padding: 2px;
+        background:linear-gradient(to right bottom ,rgb(0, 83, 0),rgb(0, 51, 0));
+        box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.619);
+        border-radius: 3px; 
+    }
+    td{
+        border-radius: 2px;
+        height: 9vw;
+        width: 9vw;
+    }
+    .a{  
+        height: 100%;
+        width: 100%;
+        user-select: none;
+        display: flex;
+        justify-content: left;
+        align-items: top;
+        padding: 1px;
+        border-radius: 2px;
+        position: relative;
+        transform: translateZ(30);
+    }
+    
+
+
+}
