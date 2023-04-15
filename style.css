@@ -11,6 +11,7 @@
         height: 100vh;
         width: 100vw;
         background:linear-gradient(to right bottom ,rgb(28, 0, 35),rgb(52, 48, 0));
+        background:linear-gradient(to right bottom ,rgb(61, 0, 76),rgb(88, 81, 0));
         display: grid;
         place-items: center;
     }
@@ -20,7 +21,7 @@
     }
     .border-wrap{
         padding: 3px;
-        background:linear-gradient(to right bottom ,rgb(0, 83, 0),rgb(0, 51, 0));
+        background:linear-gradient(to right bottom ,rgb(1, 118, 1),rgb(0, 68, 0));
         box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.619);
         border-radius: 5px; 
     }
@@ -33,7 +34,7 @@
         width: 12vh;
     }
     .dark{
-        background: linear-gradient(to right bottom,rgb(0, 83, 0),rgb(0, 51, 0));
+        background: linear-gradient(to right bottom,rgb(1, 118, 1),rgb(0, 68, 0));
     }
     .light{
         background: linear-gradient(to right bottom,rgb(169, 178, 169),rgb(79, 88, 79));
