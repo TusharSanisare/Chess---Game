@@ -1,3 +1,5 @@
+// date -> 16/04/2023
+
 
 let pieces, blockes, firstBlockClicked, secondBlockClicked, turn = 'w', apponentColor = 'b';
 let firstPice, secondPice;
@@ -106,32 +108,72 @@ function checkMoves(firstBlockClicked, secondBlockClicked) {
     }
     else if (piecesOnFisrt == "blackBishop" || piecesOnFisrt == "whiteBishop") {
 
+        // if ((e - s) % 11 == 0 && (e - s) >= 0) {
+        //     let se = s.toString()[1];
+        //     let n = 8 - se, i = 1;
+        //     console.log(se);
+        //     while (i <= n) {
+        //         s = s + 11; console.log(s);
+        //         if (e == s)
+        //             return true;
+        //         i++;
+        //     }
+        // }
+        // else if ((s - e) % 11 == 0 && (s - e) >= 0) {
+        //     let se = s.toString()[0];
+        //     let n = 8 - se, i = 1;
+        //     console.log(se);
+        //     while (i <= n) {
+        //         s = s - 11; console.log(s);
+        //         if (e == s)
+        //             return true;
+        //         i++;
+        //     }
+        // }
+        // else if (e == (s - 9) || e == (s - 18) || e == (s - 27) || e == (s - 36) || e == (s - 45) || e == (s - 54) || e == (s - 63))
+        //     return true;
+        // else if (e == (s + 9) || e == (s + 18) || e == (s + 27) || e == (s + 36) || e == (s + 45) || e == (s + 54) || e == (s + 63))
+        //     return true;
         if ((e - s) % 11 == 0 && (e - s) >= 0) {
             let se = s.toString()[1];
             let n = 8 - se, i = 1;
-            console.log(se);
             while (i <= n) {
-                s = s + 11; console.log(s);
+                s = s + 11;
                 if (e == s)
                     return true;
                 i++;
             }
         }
         else if ((s - e) % 11 == 0 && (s - e) >= 0) {
-            let se = s.toString()[0];
-            let n = 8 - se, i = 1;
-            console.log(se);
+            let se = s.toString()[1];
+            let n = se - 1, i = 1;
             while (i <= n) {
-                s = s - 11; console.log(s);
+                s = s - 11;
                 if (e == s)
                     return true;
                 i++;
             }
         }
-        else if (e == (s - 9) || e == (s - 18) || e == (s - 27) || e == (s - 36) || e == (s - 45) || e == (s - 54) || e == (s - 63))
-            return true;
-        else if (e == (s + 9) || e == (s + 18) || e == (s + 27) || e == (s + 36) || e == (s + 45) || e == (s + 54) || e == (s + 63))
-            return true;
+        else if ((e - s) % 9 == 0 && (e - s) >= 0) {
+            let se = s.toString()[1];
+            let n = se + 1, i = 1;
+            while (i <= n) {
+                s = s + 9;
+                if (e == s)
+                    return true;
+                i++;
+            }
+        }
+        else if ((s - e) % 9 == 0 && (s - e) >= 0) {
+            let se = s.toString()[1];
+            let n = 8 - se, i = 1;
+            while (i <= n) {
+                s = s - 9;
+                if (e == s)
+                    return true;
+                i++;
+            }
+        }
         else
             return false;
     }
@@ -225,8 +267,8 @@ function checkMoves(firstBlockClicked, secondBlockClicked) {
             }
         }
         else if ((s - e) % 11 == 0 && (s - e) >= 0) {
-            let se = s.toString()[0];
-            let n = 8 - se, i = 1;
+            let se = s.toString()[1];
+            let n = se - 1, i = 1;
             while (i <= n) {
                 s = s - 11;
                 if (e == s)
@@ -234,10 +276,26 @@ function checkMoves(firstBlockClicked, secondBlockClicked) {
                 i++;
             }
         }
-        else if (e == (s - 9) || e == (s - 18) || e == (s - 27) || e == (s - 36) || e == (s - 45) || e == (s - 54) || e == (s - 63))
-            return true;
-        else if (e == (s + 9) || e == (s + 18) || e == (s + 27) || e == (s + 36) || e == (s + 45) || e == (s + 54) || e == (s + 63))
-            return true;
+        else if ((e - s) % 9 == 0 && (e - s) >= 0) {
+            let se = s.toString()[1];
+            let n = se + 1, i = 1;
+            while (i <= n) {
+                s = s + 9;
+                if (e == s)
+                    return true;
+                i++;
+            }
+        }
+        else if ((s - e) % 9 == 0 && (s - e) >= 0) {
+            let se = s.toString()[1];
+            let n = 8 - se, i = 1;
+            while (i <= n) {
+                s = s - 9;
+                if (e == s)
+                    return true;
+                i++;
+            }
+        }
         else
             return false;
     }
@@ -475,7 +533,7 @@ function inbetweenBishop(s, e) {
     }
     // top left
     if (e == s - 9 || e == s - 18 || e == s - 27 || e == s - 36 || e == s - 45 || e == s - 54 || e == s - 63) {
-        s = s - 9; 
+        s = s - 9;
         if (s == e) { return false }
         while (s >= e) {
 
@@ -491,9 +549,9 @@ function inbetweenBishop(s, e) {
     return false;
 }
 
-function inbetweenRook(s, e) { 
+function inbetweenRook(s, e) {
     // top 
-    if ((e - s) < 8 && (e - s) > 0) { 
+    if ((e - s) < 8 && (e - s) > 0) {
         s = s + 1;
         if (s == e) { return false }
         while (s <= e) {
@@ -511,11 +569,11 @@ function inbetweenRook(s, e) {
     if ((s - e) < 8 && (s - e) > 0) {
         s = s - 1;
         if (s == e) { return false }
-        while (s >= e) { 
+        while (s >= e) {
 
             let inBetweenPiceName = getPiecePresent(s);
             if (inBetweenPiceName != undefined)
-                return true; 
+                return true;
             if (inBetweenPiceName == undefined)
                 s = s - 1;
             if (s == e)
@@ -523,7 +581,7 @@ function inbetweenRook(s, e) {
         }
     }
     // left 
-    if ((e - s) > 10 && (e - s) > 0) { 
+    if ((e - s) > 10 && (e - s) > 0) {
         s = s + 10;
         if (s == e) { return false }
         while (s <= e) {
@@ -538,7 +596,7 @@ function inbetweenRook(s, e) {
         }
     }
     // right
-    if ((s - e) > 10 && (s - e) > 0) {  
+    if ((s - e) > 10 && (s - e) > 0) {
         s = s - 10;
         if (s == e) { return false }
         while (s >= e) {
@@ -602,7 +660,7 @@ function inbetweenQueen(s, e) {           // its a fuckallllll solution plz dont
     }
     // top left
     if (e == s - 9 || e == s - 18 || e == s - 27 || e == s - 36 || e == s - 45 || e == s - 54 || e == s - 63) {
-        s = s - 9; 
+        s = s - 9;
         if (s == e) { return false }
         while (s >= e) {
 
@@ -616,7 +674,7 @@ function inbetweenQueen(s, e) {           // its a fuckallllll solution plz dont
         }
     }
     // top 
-    if ((e - s) < 8 && (e - s) > 0) { 
+    if ((e - s) < 8 && (e - s) > 0) {
         s = s + 1;
         if (s == e) { return false }
         while (s <= e) {
@@ -634,11 +692,11 @@ function inbetweenQueen(s, e) {           // its a fuckallllll solution plz dont
     if ((s - e) < 8 && (s - e) > 0) {
         s = s - 1;
         if (s == e) { return false }
-        while (s >= e) { 
+        while (s >= e) {
 
             let inBetweenPiceName = getPiecePresent(s);
             if (inBetweenPiceName != undefined)
-                return true; 
+                return true;
             if (inBetweenPiceName == undefined)
                 s = s - 1;
             if (s == e)
@@ -646,7 +704,7 @@ function inbetweenQueen(s, e) {           // its a fuckallllll solution plz dont
         }
     }
     // left 
-    if ((e - s) > 10 && (e - s) > 0) { 
+    if ((e - s) > 10 && (e - s) > 0) {
         s = s + 10;
         if (s == e) { return false }
         while (s <= e) {
@@ -661,7 +719,7 @@ function inbetweenQueen(s, e) {           // its a fuckallllll solution plz dont
         }
     }
     // right
-    if ((s - e) > 10 && (s - e) > 0) {  
+    if ((s - e) > 10 && (s - e) > 0) {
         s = s - 10;
         if (s == e) { return false }
         while (s >= e) {
